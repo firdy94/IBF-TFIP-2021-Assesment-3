@@ -1,0 +1,15 @@
+.recipeStyle {
+    border: lightgray 1px solid;
+    margin: 5px;
+    padding: 5px;
+    font-size: 2em;
+    transition-duration: 300ms;
+    transition-property: background-colour, border;
+    transition-timing-function: linear;
+}
+
+.recipeStyle:hover {
+    background-color: lightgrey;
+    border: black 1px solid;
+    border-radius: 8px;
+}

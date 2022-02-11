@@ -1,0 +1,22 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="p-3 col-10 align-self-center mb-4">
+        <nav class=" navbar navbar-light bg-primary rounded ">
+            <div class="d-flex flex-row m-2 ">
+                <div class="align-self-center ">
+                    <a class="navbar-brand text-white ms-1 " href="# ">
+                        <img src="assets/images/recipes.png" width="30 " height="30 " class="d-inline-block align-top " alt=" ">&nbsp;&nbsp;&nbsp;Recipes
+                    </a>
+                </div>
+                <div class="align-self-center mt-2 ">
+                    <button class="btn text-white " type="button " [routerLink]="[ '/'] ">
+                        <h5>Home</h5>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="recipeStyle card col-8" *ngFor="let item of recipes" [routerLink]="['/recipe',item.id]" (click)="go(item.id)">
+        <div class="card-body ">{{item.name}}</div>
+    </div>
+    <div><button type="button" class="btn btn-primary" (click)="onAdd()">add</button></div>
+</div>

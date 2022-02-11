@@ -1,0 +1,54 @@
+<div class="d-flex flex-column justify-content-center align-items-center">
+    <div class="p-3 col-10 align-self-center mb-4">
+        <nav class=" navbar navbar-light bg-primary rounded ">
+            <div class="d-flex flex-row m-2 ">
+                <div class="align-self-center ">
+                    <a class="navbar-brand text-white ms-1 " href="# ">
+                        <img src="assets/images/recipes.png" width="30 " height="30 " class="d-inline-block align-top " alt=" ">&nbsp;&nbsp;&nbsp;Recipes
+                    </a>
+                </div>
+                <div class="align-self-center mt-2 ">
+                    <button class="btn text-white " type="button " [routerLink]="[ '/'] ">
+                        <h5>Home</h5>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div>
+        <form [formGroup]="formGroup" class="d-flex flex-column" (ngSubmit)="onSubmit()">
+            <div>
+                <label class="form-label" for="title">Title</label><br>
+                <input class="fomr-control" type="text" formControlName="title">
+            </div>
+            <div>
+                <label class="form-label" for="ingredients">Ingredients</label>
+                <button class="btn btn-primary" type="button" (click)="addIngredient()">Add</button>
+            </div>
+            <div>
+                <table>
+                    <tbody formArrayName="ingredients">
+                        <tr *ngFor="let ingredient of formArray.controls; let i=index">
+                            <td><input class="fomrm-control" type="text" [formControl]="ingredient"></td>
+                            <button type="button" class="btn btn-danger" (click)="deleteIngredient(i)">X</button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <label class="form-label" for="Instruction">Instruction</label>
+            </div>
+            <div>
+                <textarea class="form-control" cols="30" rows="5" formControlName="instruction"></textarea>
+            </div>
+            <div>
+                <label class="form-label" for="image">Image</label>
+                <input class="form-control" type="text" formControlName="image">
+            </div>
+            <div>
+                <button class="btn btn-primary" type="button" [routerLink]="['/']">Back</button>
+            </div>
+            <div><button class="btn btn-primary" type="submit" [disabled]="formGroup.invalid">Submit</button></div>
+        </form>
+    </div>
+</div>
