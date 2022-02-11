@@ -74,6 +74,8 @@ public class RecipeRestController {
 		}
 
 		recipeSvc.addRecipe(recipe);
-		return new ResponseEntity<>("Recipe created", HttpStatus.CREATED);
+		String jsonString = JsonObject.EMPTY_JSON_OBJECT.toString();
+
+		return new ResponseEntity<>(jsonString, HttpStatus.OK);
 	}
 }
